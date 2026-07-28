@@ -1,7 +1,5 @@
-import type { APIRoute } from 'astro';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 import nodemailer from 'nodemailer';
-
-export const prerender = false;
 
 const MAX_LEN = { name: 120, email: 200, phone: 40, company: 150, interest: 60, message: 2000 };
 
@@ -16,13 +14,13 @@ function escapeHtml(value: string) {
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export const POST: APIRoute = async ({ request }) => {
-  let body: Record<string, unknown>;
-  try {
-    body = await request.json();
-  } catch {
-    return new Response(JSON.stringify({ error: 'JSON inválido.' }), { status: 400 });
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  if (req.method !== 'POST') {
+    res.setHeader('Allow', 'POST');
+    return res.status(405).json({ error: 'Método não permitido.' });
   }
+
+  const body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body ?? {});
 
   const name = String(body.name ?? '').trim();
   const email = String(body.email ?? '').trim();
@@ -32,10 +30,10 @@ export const POST: APIRoute = async ({ request }) => {
   const message = String(body.message ?? '').trim();
 
   if (!name || !email) {
-    return new Response(JSON.stringify({ error: 'Nome e e-mail são obrigatórios.' }), { status: 400 });
+    return res.status(400).json({ error: 'Nome e e-mail são obrigatórios.' });
   }
   if (!EMAIL_RE.test(email)) {
-    return new Response(JSON.stringify({ error: 'E-mail inválido.' }), { status: 400 });
+    return res.status(400).json({ error: 'E-mail inválido.' });
   }
   if (
     name.length > MAX_LEN.name ||
@@ -45,14 +43,14 @@ export const POST: APIRoute = async ({ request }) => {
     interest.length > MAX_LEN.interest ||
     message.length > MAX_LEN.message
   ) {
-    return new Response(JSON.stringify({ error: 'Um dos campos excede o tamanho máximo permitido.' }), { status: 400 });
+    return res.status(400).json({ error: 'Um dos campos excede o tamanho máximo permitido.' });
   }
 
   const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_SECURE, CONTACT_TO_EMAIL } = process.env;
 
   if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS || !CONTACT_TO_EMAIL) {
     console.error('Variáveis de ambiente SMTP ausentes.');
-    return new Response(JSON.stringify({ error: 'Formulário temporariamente indisponível. Tente novamente mais tarde.' }), { status: 500 });
+    return res.status(500).json({ error: 'Formulário temporariamente indisponível. Tente novamente mais tarde.' });
   }
 
   const transporter = nodemailer.createTransport({
@@ -105,8 +103,8 @@ export const POST: APIRoute = async ({ request }) => {
     });
   } catch (err) {
     console.error('Falha ao enviar e-mail de contato:', err);
-    return new Response(JSON.stringify({ error: 'Não foi possível enviar sua solicitação agora. Tente novamente em instantes.' }), { status: 502 });
+    return res.status(502).json({ error: 'Não foi possível enviar sua solicitação agora. Tente novamente em instantes.' });
   }
 
-  return new Response(JSON.stringify({ ok: true }), { status: 200 });
-};
+  return res.status(200).json({ ok: true });
+}

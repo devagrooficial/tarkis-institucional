@@ -1,7 +1,6 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
-import vercel from '@astrojs/vercel/serverless';
 
 export default defineConfig({
   site: 'https://tarkis.com.br',
@@ -9,8 +8,7 @@ export default defineConfig({
     react(),
     tailwind({ applyBaseStyles: false }),
   ],
-  output: 'hybrid',
-  adapter: vercel(),
+  output: 'static',
   build: {
     assets: 'assets',
   },
