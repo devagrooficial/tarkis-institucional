@@ -10,6 +10,17 @@ const INTERESTS = [
   'Outro',
 ];
 
+function formatPhone(raw: string) {
+  const digits = raw.replace(/\D/g, '').slice(0, 11);
+  let out = '';
+  if (digits.length > 0) out += `(${digits.slice(0, 2)}`;
+  if (digits.length >= 2) out += ') ';
+  if (digits.length > 2) out += digits.slice(2, 3);
+  if (digits.length > 3) out += ` ${digits.slice(3, 7)}`;
+  if (digits.length > 7) out += `-${digits.slice(7, 11)}`;
+  return out;
+}
+
 function useInView(threshold = 0.2) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -34,7 +45,8 @@ export default function CallToAction() {
   });
 
   const handle = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setForm((f) => ({ ...f, [name]: name === 'phone' ? formatPhone(value) : value }));
   };
 
   const submit = async (e: React.FormEvent) => {
