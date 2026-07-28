@@ -1,0 +1,222 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
+
+const lastUpdate = '24 de junho de 2026';
+---
+
+<Layout
+  title="Política de Privacidade — Tarkis ADM"
+  description="Política de Privacidade da Tarkis ADM em conformidade com a LGPD."
+>
+  <Navigation client:load />
+
+  <main class="bg-white pt-28 pb-24">
+    <div class="container max-w-3xl">
+
+      <nav class="flex items-center gap-2 text-sm text-petroleum/40 mb-8">
+        <a href="/" class="hover:text-emerald transition-colors">Início</a>
+        <span>/</span>
+        <span class="text-petroleum/70">Política de Privacidade</span>
+      </nav>
+
+      <div class="mb-10">
+        <span class="badge-emerald mb-4">Legal</span>
+        <h1 class="section-title mt-3 mb-4">Política de Privacidade</h1>
+        <p class="text-petroleum/55 text-sm">
+          Última atualização: <strong class="text-petroleum/70">{lastUpdate}</strong>
+        </p>
+      </div>
+
+      <div class="prose prose-lg max-w-none text-petroleum/70 leading-relaxed space-y-8">
+
+        <section>
+          <h2 class="font-heading font-bold text-petroleum text-xl mb-3">1. Identificação do Controlador</h2>
+          <p>
+            A <strong class="text-petroleum">Tarkis ADM</strong> (CNPJ: 00.000.000/0001-00), com sede em
+            São Paulo, SP, Brasil, é a controladora dos dados pessoais tratados por meio deste site
+            e da plataforma Tarkis ADM.
+          </p>
+          <p class="mt-2">
+            <strong>Encarregado (DPO):</strong> privacidade@tarkis.com.br
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-heading font-bold text-petroleum text-xl mb-3">2. Quais dados coletamos</h2>
+          <div class="space-y-3">
+            {[
+              {
+                title: 'Dados fornecidos pelo usuário',
+                items: [
+                  'Nome completo e cargo',
+                  'E-mail corporativo e telefone',
+                  'Nome da empresa e CNPJ',
+                  'Conteúdo de mensagens enviadas pelo formulário de contato',
+                ],
+              },
+              {
+                title: 'Dados coletados automaticamente',
+                items: [
+                  'Endereço IP (anonimizado)',
+                  'Tipo de navegador e sistema operacional',
+                  'Páginas acessadas e tempo de permanência',
+                  'Origem do acesso (referrer)',
+                  'Dados de cookies (conforme Política de Cookies)',
+                ],
+              },
+            ].map(({ title, items }) => (
+              <div class="bg-silver-light rounded-xl p-4">
+                <p class="font-semibold text-petroleum text-sm mb-2">{title}</p>
+                <ul class="list-disc list-inside space-y-1 text-sm text-petroleum/60">
+                  {items.map((item) => <li>{item}</li>)}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <h2 class="font-heading font-bold text-petroleum text-xl mb-3">3. Finalidade do tratamento</h2>
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="bg-silver-light">
+                <th class="text-left p-3 text-petroleum font-semibold rounded-tl-lg">Finalidade</th>
+                <th class="text-left p-3 text-petroleum font-semibold">Base Legal (LGPD)</th>
+                <th class="text-left p-3 text-petroleum font-semibold rounded-tr-lg">Retenção</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-silver">
+              {[
+                ['Responder solicitações de demonstração', 'Consentimento (Art. 7°, I)', '12 meses'],
+                ['Análise de tráfego do site', 'Legítimo interesse (Art. 7°, IX)', '26 meses'],
+                ['Envio de comunicações comerciais', 'Consentimento (Art. 7°, I)', 'Até revogação'],
+                ['Conformidade legal e fiscal', 'Obrigação legal (Art. 7°, II)', '5 anos'],
+                ['Segurança e prevenção a fraudes', 'Legítimo interesse (Art. 7°, IX)', '6 meses'],
+              ].map(([fin, base, ret]) => (
+                <tr class="hover:bg-silver-light/50 transition-colors">
+                  <td class="p-3 text-petroleum/70">{fin}</td>
+                  <td class="p-3 text-petroleum/60">{base}</td>
+                  <td class="p-3 text-petroleum/60">{ret}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 class="font-heading font-bold text-petroleum text-xl mb-3">4. Compartilhamento de dados</h2>
+          <p>Seus dados podem ser compartilhados com:</p>
+          <ul class="list-disc list-inside space-y-1.5 mt-2 text-sm text-petroleum/65">
+            <li><strong class="text-petroleum/80">Prestadores de serviço:</strong> plataformas de e-mail marketing, CRM e analytics, sempre sob contrato de proteção de dados</li>
+            <li><strong class="text-petroleum/80">Autoridades públicas:</strong> quando exigido por lei ou ordem judicial</li>
+            <li><strong class="text-petroleum/80">Parceiros de negócio:</strong> nunca vendemos ou alugamos seus dados a terceiros para fins de marketing sem seu consentimento explícito</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="font-heading font-bold text-petroleum text-xl mb-3">5. Segurança dos dados</h2>
+          <p>
+            Adotamos medidas técnicas e organizacionais adequadas para proteger seus dados contra
+            acesso não autorizado, alteração, divulgação ou destruição. Isso inclui:
+          </p>
+          <ul class="list-disc list-inside space-y-1 mt-2 text-sm text-petroleum/65">
+            <li>Criptografia TLS 1.3 em todas as comunicações</li>
+            <li>Controle de acesso baseado em papéis (RBAC)</li>
+            <li>Logs de auditoria e monitoramento contínuo</li>
+            <li>Backups criptografados com retenção definida</li>
+            <li>Programa de gestão de vulnerabilidades</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="font-heading font-bold text-petroleum text-xl mb-3">6. Seus direitos (LGPD)</h2>
+          <p>
+            Conforme a Lei nº 13.709/2018, você tem os seguintes direitos em relação aos seus
+            dados pessoais:
+          </p>
+          <div class="grid sm:grid-cols-2 gap-3 mt-3">
+            {[
+              { right: 'Confirmação', desc: 'Saber se tratamos seus dados' },
+              { right: 'Acesso', desc: 'Receber cópia dos seus dados' },
+              { right: 'Correção', desc: 'Corrigir dados incompletos ou errados' },
+              { right: 'Anonimização', desc: 'Tornar desnecessários dados excessivos' },
+              { right: 'Portabilidade', desc: 'Transferir seus dados para outro fornecedor' },
+              { right: 'Eliminação', desc: 'Apagar dados tratados com consentimento' },
+              { right: 'Revogação', desc: 'Retirar consentimento a qualquer momento' },
+              { right: 'Oposição', desc: 'Opor-se a tratamento indevido' },
+            ].map(({ right, desc }) => (
+              <div class="flex items-start gap-2 bg-silver-light rounded-lg p-3 text-sm">
+                <div class="w-1.5 h-1.5 rounded-full bg-emerald mt-1.5 flex-shrink-0" />
+                <div>
+                  <span class="font-semibold text-petroleum">{right}: </span>
+                  <span class="text-petroleum/60">{desc}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p class="mt-4 text-sm">
+            Para exercer qualquer direito, envie um e-mail para{' '}
+            <a href="mailto:privacidade@tarkis.com.br" class="text-emerald hover:underline font-medium">
+              privacidade@tarkis.com.br
+            </a>{' '}
+            com o assunto "Exercício de Direito LGPD". Responderemos em até 15 dias.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-heading font-bold text-petroleum text-xl mb-3">7. Transferências internacionais</h2>
+          <p>
+            Alguns de nossos parceiros de tecnologia podem processar dados fora do Brasil
+            (ex.: Google LLC nos EUA). Nesses casos, garantimos salvaguardas adequadas, como
+            cláusulas contratuais padrão e certificações de conformidade reconhecidas internacionalmente.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-heading font-bold text-petroleum text-xl mb-3">8. Menores de 18 anos</h2>
+          <p>
+            O site e a plataforma Tarkis ADM são destinados exclusivamente a pessoas jurídicas e
+            profissionais adultos. Não coletamos intencionalmente dados pessoais de menores de 18 anos.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-heading font-bold text-petroleum text-xl mb-3">9. Contato e reclamações</h2>
+          <div class="bg-silver-light rounded-xl p-5 text-sm space-y-2">
+            <p><strong class="text-petroleum">DPO / Encarregado:</strong> privacidade@tarkis.com.br</p>
+            <p><strong class="text-petroleum">Telefone:</strong> (11) 9 9999-9999</p>
+            <p><strong class="text-petroleum">Endereço:</strong> São Paulo, SP, Brasil</p>
+            <p class="pt-2 text-petroleum/55">
+              Você também pode apresentar reclamação diretamente à Autoridade Nacional de Proteção
+              de Dados (ANPD) em <a href="https://www.gov.br/anpd" target="_blank" rel="noopener noreferrer" class="text-emerald hover:underline">www.gov.br/anpd</a>.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="font-heading font-bold text-petroleum text-xl mb-3">10. Atualizações desta política</h2>
+          <p>
+            Esta política pode ser atualizada periodicamente. Alterações relevantes serão comunicadas
+            com pelo menos 30 dias de antecedência por meio deste site ou por e-mail. O uso continuado
+            da plataforma após esse período constitui aceite das mudanças.
+          </p>
+        </section>
+
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-silver flex flex-wrap gap-4">
+        <a href="/" class="inline-flex items-center gap-2 text-emerald font-medium hover:text-emerald-dark transition-colors text-sm">
+          ← Voltar ao site
+        </a>
+        <a href="/politica-de-cookies" class="inline-flex items-center gap-2 text-petroleum/50 hover:text-emerald font-medium transition-colors text-sm">
+          Ver Política de Cookies →
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

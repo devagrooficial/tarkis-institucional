@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+  <rect width="36" height="36" rx="8" fill="#0A2E36"/>
+  <!-- Tarkis mark — white, scaled to fit 36x36 -->
+  <!-- Mark natural size: 62x82 → scale ~0.37 → 23x30, offset x=6 y=3 -->
+  <g transform="translate(6,3) scale(0.366)">
+    <rect x="0"  y="10" width="23" height="23" rx="6"  fill="white"/>
+    <rect x="30" y="4"  width="20" height="20" rx="5"  fill="white"/>
+    <rect x="17" y="12" width="17" height="10" rx="3"  fill="white"/>
+    <rect x="4"  y="29" width="13" height="13" rx="4"  fill="white"/>
+    <rect x="0"  y="37" width="37" height="37" rx="9"  fill="white"/>
+    <rect x="34" y="46" width="12" height="14" rx="3"  fill="white"/>
+    <rect x="43" y="42" width="21" height="21" rx="5"  fill="white"/>
+    <rect x="0"  y="71" width="62" height="11" rx="5"  fill="white"/>
+  </g>
+</svg>

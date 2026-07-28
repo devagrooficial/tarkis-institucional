@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation';
+import Hero from '../components/Hero';
+import Stats from '../components/Stats';
+import Features from '../components/Features';
+import ForWho from '../components/ForWho';
+import DemoSection from '../components/DemoSection';
+import CallToAction from '../components/CallToAction';
+import Footer from '../components/Footer';
+---
+
+<Layout>
+  <Navigation client:load />
+  <main>
+    <Hero client:load />
+    <Stats client:visible />
+    <Features client:visible />
+    <ForWho client:visible />
+    <DemoSection client:visible />
+    <CallToAction client:visible />
+  </main>
+  <Footer />
+</Layout>

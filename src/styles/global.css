@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base ─────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-white text-petroleum font-sans;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold tracking-tight;
+  }
+
+  ::selection {
+    @apply bg-emerald/30 text-petroleum;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-emerald rounded-sm;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar       { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #F5F5F5; }
+  ::-webkit-scrollbar-thumb { @apply bg-emerald/50 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-emerald; }
+}
+
+/* ── Components ───────────────────────────────────── */
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-emerald text-white font-semibold rounded-xl
+           hover:bg-emerald-light active:scale-[0.98] transition-all duration-200
+           shadow-emerald-sm hover:shadow-emerald-md focus-visible:outline-emerald;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-3 border-2 border-emerald text-emerald font-semibold rounded-xl
+           hover:bg-emerald hover:text-white active:scale-[0.98] transition-all duration-200
+           focus-visible:outline-emerald;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-6 py-3 text-white/80 font-semibold rounded-xl
+           hover:text-white hover:bg-white/10 active:scale-[0.98] transition-all duration-200;
+  }
+
+  .btn-outline-white {
+    @apply inline-flex items-center gap-2 px-6 py-3 border-2 border-white/30 text-white font-semibold rounded-xl
+           hover:border-white/60 hover:bg-white/10 active:scale-[0.98] transition-all duration-200;
+  }
+
+  /* Cards */
+  .card-dark {
+    @apply bg-gradient-card border border-white/10 rounded-2xl p-6
+           shadow-card-dark hover:border-emerald/30 transition-all duration-300;
+  }
+
+  .card-light {
+    @apply bg-white border border-silver rounded-2xl p-6
+           shadow-card hover:shadow-emerald-sm hover:border-emerald/30 transition-all duration-300;
+  }
+
+  /* Section headers */
+  .section-eyebrow {
+    @apply inline-flex items-center gap-2 text-emerald font-semibold text-sm uppercase tracking-widest;
+  }
+
+  .section-title {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-petroleum leading-tight;
+  }
+
+  .section-title-light {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white leading-tight;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-emerald to-emerald-light bg-clip-text text-transparent;
+  }
+
+  /* Glowing badge */
+  .badge-emerald {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 bg-emerald/15 text-emerald
+           border border-emerald/30 rounded-full text-xs font-semibold uppercase tracking-wider;
+  }
+
+  /* Feature icon */
+  .feature-icon {
+    @apply w-12 h-12 rounded-xl bg-emerald/15 border border-emerald/20
+           flex items-center justify-center text-emerald flex-shrink-0;
+  }
+
+  /* Glow overlay */
+  .glow-emerald {
+    @apply relative;
+  }
+  .glow-emerald::after {
+    @apply content-[''] absolute inset-0 rounded-inherit
+           bg-emerald/10 blur-xl -z-10;
+  }
+
+  /* Nav link */
+  .nav-link {
+    @apply text-white/70 hover:text-white font-medium transition-colors duration-200 text-sm;
+  }
+
+  /* Divider */
+  .divider {
+    @apply border-t border-silver my-8;
+  }
+
+  /* Animated underline */
+  .underline-emerald {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-0.5
+           after:bg-emerald after:w-0 hover:after:w-full after:transition-all after:duration-300;
+  }
+}
+
+/* ── Utilities ────────────────────────────────────── */
+@layer utilities {
+  .animation-delay-100  { animation-delay: 100ms; }
+  .animation-delay-200  { animation-delay: 200ms; }
+  .animation-delay-300  { animation-delay: 300ms; }
+  .animation-delay-400  { animation-delay: 400ms; }
+  .animation-delay-500  { animation-delay: 500ms; }
+  .animation-delay-600  { animation-delay: 600ms; }
+  .animation-delay-700  { animation-delay: 700ms; }
+  .animation-delay-800  { animation-delay: 800ms; }
+
+  .animation-fill-both  { animation-fill-mode: both; }
+
+  .text-balance { text-wrap: balance; }
+
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+}
+
+/* ── React Flow overrides ─────────────────────────── */
+.react-flow__renderer {
+  border-radius: 1rem;
+}
+
+.react-flow__background {
+  background: transparent !important;
+}
+
+.react-flow__edge-path {
+  stroke-width: 2 !important;
+}
+
+.react-flow__attribution {
+  display: none !important;
+}
+
+.react-flow__panel {
+  display: none !important;
+}
+
+/* ── Animations (opacity:0 initial) ──────────────── */
+.animate-fade-in,
+.animate-slide-up,
+.animate-slide-right,
+.animate-scale-in {
+  opacity: 0;
+}

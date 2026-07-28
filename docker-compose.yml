@@ -1,0 +1,53 @@
+services:
+
+  # ── Site estático ────────────────────────────────────
+  tarkis-site:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: tarkis-site
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      # Config nginx com SSL (ajustado no VPS)
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      # Certificados Let's Encrypt
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+      # Challenge ACME para renovação certbot
+      - certbot-webroot:/var/www/certbot:ro
+      # Logs
+      - ./logs/nginx:/var/log/nginx
+    networks:
+      - tarkis-net
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # ── Certbot (renovação automática) ───────────────────
+  certbot:
+    image: certbot/certbot:latest
+    container_name: tarkis-certbot
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+      - certbot-webroot:/var/www/certbot
+    entrypoint: >
+      /bin/sh -c 'trap exit TERM;
+      while :; do
+        certbot renew --webroot -w /var/www/certbot --quiet;
+        sleep 12h & wait $!;
+      done'
+    networks:
+      - tarkis-net
+
+volumes:
+  certbot-webroot:
+
+networks:
+  tarkis-net:
+    driver: bridge

@@ -1,0 +1,280 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
+
+const lastUpdate = '24 de junho de 2026';
+---
+
+<Layout
+  title="Política de Cookies — Tarkis ADM"
+  description="Saiba como a Tarkis utiliza cookies em seu site institucional e na plataforma ADM."
+>
+  <Navigation client:load />
+
+  <main class="bg-white pt-28 pb-24">
+    <div class="container max-w-3xl">
+
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm text-petroleum/40 mb-8">
+        <a href="/" class="hover:text-emerald transition-colors">Início</a>
+        <span>/</span>
+        <span class="text-petroleum/70">Política de Cookies</span>
+      </nav>
+
+      <!-- Header -->
+      <div class="mb-10">
+        <span class="badge-emerald mb-4">Legal</span>
+        <h1 class="section-title mt-3 mb-4">Política de Cookies</h1>
+        <p class="text-petroleum/55 text-sm">
+          Última atualização: <strong class="text-petroleum/70">{lastUpdate}</strong>
+        </p>
+      </div>
+
+      <!-- Content -->
+      <div class="prose prose-lg max-w-none text-petroleum/70 leading-relaxed space-y-8">
+
+        <section>
+          <h2 class="font-heading font-bold text-petroleum text-xl mb-3">1. O que são cookies?</h2>
+          <p>
+            Cookies são pequenos arquivos de texto armazenados no seu dispositivo (computador, tablet
+            ou celular) quando você visita um site. Eles permitem que o site reconheça seu dispositivo
+            em visitas futuras e armazene informações como preferências e configurações de sessão.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-heading font-bold text-petroleum text-xl mb-3">2. Como utilizamos cookies</h2>
+          <p>
+            A Tarkis utiliza cookies para garantir o funcionamento correto do site, melhorar a
+            experiência do usuário, analisar como o site é utilizado e, quando autorizado, para
+            fins de marketing. Seguimos rigorosamente a Lei Geral de Proteção de Dados (LGPD —
+            Lei nº 13.709/2018).
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-heading font-bold text-petroleum text-xl mb-3">3. Tipos de cookies que utilizamos</h2>
+
+          <div class="space-y-4">
+            <!-- Necessary -->
+            <div class="bg-silver-light rounded-2xl p-5 border-l-4 border-petroleum">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="font-bold text-petroleum">Cookies Necessários</span>
+                <span class="text-[10px] bg-petroleum text-white px-2 py-0.5 rounded-full font-semibold uppercase">Sempre ativos</span>
+              </div>
+              <p class="text-sm leading-relaxed">
+                Essenciais para o funcionamento básico do site. Incluem cookies de sessão, autenticação
+                e preferências de privacidade. Esses cookies não podem ser desativados.
+              </p>
+              <table class="w-full mt-3 text-xs">
+                <thead>
+                  <tr class="text-left text-petroleum/50">
+                    <th class="py-1 pr-4 font-semibold">Cookie</th>
+                    <th class="py-1 pr-4 font-semibold">Finalidade</th>
+                    <th class="py-1 font-semibold">Duração</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-silver">
+                  <tr>
+                    <td class="py-1.5 pr-4 font-mono text-petroleum/60">tarkis_cookie_consent</td>
+                    <td class="py-1.5 pr-4 text-petroleum/60">Armazena preferências de consentimento</td>
+                    <td class="py-1.5 text-petroleum/60">1 ano</td>
+                  </tr>
+                  <tr>
+                    <td class="py-1.5 pr-4 font-mono text-petroleum/60">session_id</td>
+                    <td class="py-1.5 pr-4 text-petroleum/60">Mantém sessão do usuário ativa</td>
+                    <td class="py-1.5 text-petroleum/60">Sessão</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Functional -->
+            <div class="bg-silver-light rounded-2xl p-5 border-l-4 border-blue-500">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="font-bold text-petroleum">Cookies Funcionais</span>
+                <span class="text-[10px] bg-blue-500 text-white px-2 py-0.5 rounded-full font-semibold uppercase">Opcional</span>
+              </div>
+              <p class="text-sm leading-relaxed">
+                Permitem que o site lembre escolhas que você fez, como idioma, layout e personalizações
+                de interface. Melhoram a usabilidade sem coletar informações pessoais identificáveis.
+              </p>
+              <table class="w-full mt-3 text-xs">
+                <thead>
+                  <tr class="text-left text-petroleum/50">
+                    <th class="py-1 pr-4 font-semibold">Cookie</th>
+                    <th class="py-1 pr-4 font-semibold">Finalidade</th>
+                    <th class="py-1 font-semibold">Duração</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-silver">
+                  <tr>
+                    <td class="py-1.5 pr-4 font-mono text-petroleum/60">tarkis_theme</td>
+                    <td class="py-1.5 pr-4 text-petroleum/60">Preferência de tema visual</td>
+                    <td class="py-1.5 text-petroleum/60">1 ano</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Analytics -->
+            <div class="bg-silver-light rounded-2xl p-5 border-l-4 border-emerald">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="font-bold text-petroleum">Cookies Analíticos</span>
+                <span class="text-[10px] bg-emerald text-white px-2 py-0.5 rounded-full font-semibold uppercase">Opcional</span>
+              </div>
+              <p class="text-sm leading-relaxed">
+                Coletamos dados anônimos sobre como os visitantes interagem com o site — páginas
+                visitadas, tempo de permanência e origem do tráfego. Esses dados nos ajudam a
+                melhorar o conteúdo e a navegação.
+              </p>
+              <table class="w-full mt-3 text-xs">
+                <thead>
+                  <tr class="text-left text-petroleum/50">
+                    <th class="py-1 pr-4 font-semibold">Cookie</th>
+                    <th class="py-1 pr-4 font-semibold">Provedor</th>
+                    <th class="py-1 font-semibold">Duração</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-silver">
+                  <tr>
+                    <td class="py-1.5 pr-4 font-mono text-petroleum/60">_ga, _ga_*</td>
+                    <td class="py-1.5 pr-4 text-petroleum/60">Google Analytics 4</td>
+                    <td class="py-1.5 text-petroleum/60">2 anos</td>
+                  </tr>
+                  <tr>
+                    <td class="py-1.5 pr-4 font-mono text-petroleum/60">_gid</td>
+                    <td class="py-1.5 pr-4 text-petroleum/60">Google Analytics</td>
+                    <td class="py-1.5 text-petroleum/60">24 horas</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Marketing -->
+            <div class="bg-silver-light rounded-2xl p-5 border-l-4 border-amber-500">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="font-bold text-petroleum">Cookies de Marketing</span>
+                <span class="text-[10px] bg-amber-500 text-white px-2 py-0.5 rounded-full font-semibold uppercase">Opcional</span>
+              </div>
+              <p class="text-sm leading-relaxed">
+                Utilizados para exibir anúncios relevantes para você em outras plataformas e para
+                medir a eficácia de campanhas. Esses cookies rastreiam sua atividade em diferentes
+                sites.
+              </p>
+              <table class="w-full mt-3 text-xs">
+                <thead>
+                  <tr class="text-left text-petroleum/50">
+                    <th class="py-1 pr-4 font-semibold">Cookie</th>
+                    <th class="py-1 pr-4 font-semibold">Provedor</th>
+                    <th class="py-1 font-semibold">Duração</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-silver">
+                  <tr>
+                    <td class="py-1.5 pr-4 font-mono text-petroleum/60">_fbp</td>
+                    <td class="py-1.5 pr-4 text-petroleum/60">Meta (Facebook Pixel)</td>
+                    <td class="py-1.5 text-petroleum/60">90 dias</td>
+                  </tr>
+                  <tr>
+                    <td class="py-1.5 pr-4 font-mono text-petroleum/60">li_fat_id</td>
+                    <td class="py-1.5 pr-4 text-petroleum/60">LinkedIn Insight Tag</td>
+                    <td class="py-1.5 text-petroleum/60">30 dias</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="font-heading font-bold text-petroleum text-xl mb-3">4. Como gerenciar seus cookies</h2>
+          <p>
+            Você pode revisar e alterar suas preferências de cookies a qualquer momento clicando em
+            "Preferências de Cookies" no rodapé do site, ou diretamente nas configurações do seu navegador.
+          </p>
+          <div class="bg-silver-light rounded-xl p-4 mt-4 space-y-2 text-sm">
+            {[
+              ['Google Chrome', 'Configurações → Privacidade e Segurança → Cookies'],
+              ['Mozilla Firefox', 'Configurações → Privacidade e Segurança → Cookies'],
+              ['Safari', 'Preferências → Privacidade → Gerenciar dados de sites'],
+              ['Microsoft Edge', 'Configurações → Cookies e permissões do site'],
+            ].map(([browser, path]) => (
+              <div class="flex items-start gap-2">
+                <span class="font-semibold text-petroleum min-w-[140px]">{browser}:</span>
+                <span class="text-petroleum/60">{path}</span>
+              </div>
+            ))}
+          </div>
+          <p class="mt-3 text-sm text-petroleum/50">
+            Atenção: desativar certos cookies pode impactar a funcionalidade do site.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-heading font-bold text-petroleum text-xl mb-3">5. Cookies de terceiros</h2>
+          <p>
+            Alguns cookies são definidos por serviços de terceiros que aparecem em nossas páginas.
+            Não temos controle sobre cookies definidos por terceiros. Recomendamos que você consulte
+            as políticas de privacidade desses terceiros diretamente.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-heading font-bold text-petroleum text-xl mb-3">6. Transferências internacionais</h2>
+          <p>
+            Alguns provedores de cookies (como Google e Meta) podem processar dados fora do Brasil.
+            Nesses casos, garantimos que existam salvaguardas adequadas conforme exigido pela LGPD,
+            como cláusulas contratuais padrão aprovadas pela ANPD.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-heading font-bold text-petroleum text-xl mb-3">7. Seus direitos sob a LGPD</h2>
+          <p>Conforme a Lei nº 13.709/2018, você tem o direito de:</p>
+          <ul class="list-disc list-inside space-y-1 mt-2 text-sm text-petroleum/65">
+            <li>Confirmar a existência de tratamento de seus dados</li>
+            <li>Acessar seus dados pessoais coletados via cookies</li>
+            <li>Solicitar a correção de dados incompletos ou desatualizados</li>
+            <li>Solicitar a eliminação de dados tratados com seu consentimento</li>
+            <li>Revogar o consentimento a qualquer momento</li>
+            <li>Apresentar reclamação à Autoridade Nacional de Proteção de Dados (ANPD)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="font-heading font-bold text-petroleum text-xl mb-3">8. Contato do DPO</h2>
+          <p>
+            Para exercer seus direitos ou tirar dúvidas sobre nossa política de cookies, entre em
+            contato com nosso Encarregado de Proteção de Dados (DPO):
+          </p>
+          <div class="bg-silver-light rounded-xl p-4 mt-3 text-sm space-y-1">
+            <p><strong class="text-petroleum">E-mail:</strong> <a href="mailto:privacidade@tarkis.com.br" class="text-emerald hover:underline">privacidade@tarkis.com.br</a></p>
+            <p><strong class="text-petroleum">Empresa:</strong> Tarkis ADM</p>
+            <p><strong class="text-petroleum">CNPJ:</strong> 00.000.000/0001-00</p>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="font-heading font-bold text-petroleum text-xl mb-3">9. Alterações nesta política</h2>
+          <p>
+            Podemos atualizar esta Política de Cookies periodicamente. Recomendamos que você a
+            revise regularmente. Alterações significativas serão comunicadas através do site ou
+            por e-mail, quando aplicável.
+          </p>
+        </section>
+
+      </div>
+
+      <!-- Back link -->
+      <div class="mt-12 pt-8 border-t border-silver">
+        <a href="/" class="inline-flex items-center gap-2 text-emerald font-medium hover:text-emerald-dark transition-colors text-sm">
+          ← Voltar ao site
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

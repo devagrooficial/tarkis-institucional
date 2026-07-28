@@ -1,0 +1,96 @@
+---
+import '../styles/global.css';
+import CookieBanner from '../components/CookieBanner';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  canonical?: string;
+  noIndex?: boolean;
+}
+
+const {
+  title = 'Tarkis ADM — Gestão Operacional End-to-End',
+  description = 'Plataforma de gestão operacional para empresas que dependem de equipes externas. Do onboarding do operador ao contrato assinado digitalmente, do agendamento da diária ao pagamento aprovado — tudo em um único painel.',
+  ogImage = '/og-image.jpg',
+  canonical,
+  noIndex = false,
+} = Astro.props;
+
+const siteUrl = 'https://tarkis.com.br';
+const canonicalUrl = canonical ?? Astro.url.href;
+---
+
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Primary meta -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    {noIndex && <meta name="robots" content="noindex, nofollow" />}
+
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content={canonicalUrl} />
+    <meta property="og:title"       content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image"       content={`${siteUrl}${ogImage}`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale"      content="pt_BR" />
+    <meta property="og:site_name"   content="Tarkis ADM" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image"       content={`${siteUrl}${ogImage}`} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="apple-touch-icon"      href="/images/favicon.png" />
+    <link rel="manifest"              href="/site.webmanifest" />
+    <meta name="theme-color" content="#0A2E36" />
+
+    <!-- Security headers via meta (backup — real headers via nginx) -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Tarkis ADM",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Plataforma de gestão operacional end-to-end para empresas com equipes externas.",
+        "url": "https://tarkis.com.br",
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "BRL"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Tarkis",
+          "url": "https://tarkis.com.br"
+        }
+      }
+    </script>
+  </head>
+
+  <body class="overflow-x-hidden">
+    <slot />
+    <CookieBanner client:only="react" />
+  </body>
+</html>
