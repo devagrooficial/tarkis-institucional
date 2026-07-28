@@ -643,10 +643,11 @@ export default function DemoSection() {
 
         {/* CTA */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-14">
-          <a href="#contato" className="btn-primary px-8 py-3.5 text-base group">
+          {/* Oculto temporariamente — reativar quando comercialização for liberada */}
+          {/* <a href="#contato" className="btn-primary px-8 py-3.5 text-base group">
             Agendar Demonstração ao Vivo
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform"/>
-          </a>
+          </a> */}
           <a href="#para-quem" className="btn-outline-white px-8 py-3.5 text-base">
             Ver para quem é
           </a>

@@ -138,8 +138,8 @@ export default function ForWho() {
             </div>
           ))}
 
-          {/* CTA card */}
-          <div className="bg-petroleum rounded-2xl p-6 flex flex-col items-start justify-between gap-6 shadow-card-dark">
+          {/* CTA card — oculto temporariamente, reativar quando comercialização for liberada */}
+          {/* <div className="bg-petroleum rounded-2xl p-6 flex flex-col items-start justify-between gap-6 shadow-card-dark">
             <div>
               <h3 className="font-heading font-bold text-white text-xl mb-3 leading-tight">
                 Pronto para transformar sua operação?
@@ -156,7 +156,7 @@ export default function ForWho() {
               Agendar Demonstração
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

@@ -71,13 +71,14 @@ export default function Hero() {
 
             {/* CTAs */}
             <div data-animate className="flex flex-wrap gap-3">
-              <a href="#contato" className="btn-primary text-base px-7 py-3.5 group">
+              {/* Oculto temporariamente — reativar quando comercialização for liberada */}
+              {/* <a href="#contato" className="btn-primary text-base px-7 py-3.5 group">
                 Agendar Demonstração
                 <ArrowRight
                   size={18}
                   className="group-hover:translate-x-1 transition-transform"
                 />
-              </a>
+              </a> */}
               <a href="#demo" className="btn-outline-white text-base px-7 py-3.5 group">
                 <Play size={16} className="text-emerald" />
                 Ver a Plataforma

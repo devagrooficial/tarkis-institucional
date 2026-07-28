@@ -15,8 +15,9 @@ const LINKS = {
   Empresa: [
     { label: 'Para Quem',              href: '#para-quem' },
     { label: 'Demonstração',           href: '#demo' },
-    { label: 'Agendar Demo',           href: '#contato' },
-    { label: 'Contato',                href: '#contato' },
+    // Ocultos temporariamente — reativar quando comercialização for liberada
+    // { label: 'Agendar Demo',           href: '#contato' },
+    // { label: 'Contato',                href: '#contato' },
   ],
   Legal: [
     { label: 'Política de Privacidade', href: '/politica-de-privacidade' },
@@ -54,7 +55,7 @@ export default function Footer() {
             <div className="space-y-2">
               {[
                 { icon: <Mail size={14} />,    text: 'contato@tarkis.com.br', href: 'mailto:contato@tarkis.com.br' },
-                { icon: <MapPin size={14} />,  text: 'São Paulo, SP — Brasil', href: undefined },
+                { icon: <MapPin size={14} />,  text: 'Cuiabá, MT — Brasil', href: undefined },
               ].map(({ icon, text, href }) => (
                 href ? (
                   <a key={text} href={href} className="flex items-center gap-2 text-white/40 hover:text-emerald transition-colors text-xs group">

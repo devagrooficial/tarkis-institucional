@@ -15,7 +15,8 @@ const navLinks = [
   },
   { label: 'Para Quem',  href: '#para-quem' },
   { label: 'Demonstração', href: '#demo' },
-  { label: 'Contato',    href: '#contato' },
+  // Oculto temporariamente — reativar quando comercialização for liberada
+  // { label: 'Contato',    href: '#contato' },
 ];
 
 export default function Navigation() {
@@ -97,15 +98,15 @@ export default function Navigation() {
             )}
           </nav>
 
-          {/* CTA */}
-          <div className="hidden md:flex items-center gap-3">
+          {/* CTA — oculto temporariamente, reativar quando comercialização for liberada */}
+          {/* <div className="hidden md:flex items-center gap-3">
             <a href="#demo" className="btn-ghost text-sm px-4 py-2">
               Ver Demo
             </a>
             <a href="#contato" className="btn-primary text-sm px-5 py-2.5">
               Agendar Demo
             </a>
-          </div>
+          </div> */}
 
           {/* Mobile menu toggle */}
           <button
@@ -150,10 +151,11 @@ export default function Navigation() {
               )}
             </div>
           ))}
-          <div className="pt-3 border-t border-white/10 flex flex-col gap-2">
+          {/* Oculto temporariamente — reativar quando comercialização for liberada */}
+          {/* <div className="pt-3 border-t border-white/10 flex flex-col gap-2">
             <a href="#demo"    className="btn-outline-white justify-center text-sm">Ver Demo</a>
             <a href="#contato" className="btn-primary justify-center text-sm">Agendar Demo</a>
-          </div>
+          </div> */}
         </div>
       </div>
     </header>
